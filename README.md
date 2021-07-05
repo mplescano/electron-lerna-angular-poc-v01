@@ -1,10 +1,18 @@
-# AppFrontend
+# Lerna POC 02
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+This project was generated with the next commands.
+```
+npx --package @angular/cli ng new lerna-poc-v02 --create-application false --directory lerna-poc-v02 --new-project-root subprojects --strict
+ng generate application app-frontend --strict
+ng generate e2e --related-app-name app-frontend
+ng add @angular-eslint/schematics  # using cmd in windows
+ng lint app-frontend               # not working for multiproject angular setting
+npx lerna init --independent
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run serve:app-frontend` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,7 +20,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` or `npm run build:dev` or `npm run build:prod` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 

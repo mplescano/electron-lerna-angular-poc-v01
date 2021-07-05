@@ -1,0 +1,13 @@
+{
+  "name": "app-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "ng build app-frontend --base-href ./",
+    "build:dev": "npm run build -- -c development",
+    "build:prod": "npm run build -- -c production"
+  },
+  "peerDependencies": {
+    "@angular/common": "~12.1.0",
+    "@angular/core": "~12.1.0"
+  }
+}

@@ -27,11 +27,27 @@
               "subprojects/app-frontend/src/assets"
             ],
             "styles": [
-              "subprojects/app-frontend/src/styles.css"
+              "subprojects/app-frontend/src/styles.scss"
             ],
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "subprojects/app-frontend/src/environments/environment.ts",
+                  "with": "subprojects/app-frontend/src/environments/environment.dev.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -53,16 +69,23 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
-              "buildOptimizer": false,
+            "web": {
               "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
+              "outputHashing": "none",
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "fileReplacements": [
+                {
+                  "replace": "subprojects/app-frontend/src/environments/environment.ts",
+                  "with": "subprojects/app-frontend/src/environments/environment.web.ts"
+                }
+              ]
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -72,6 +95,9 @@
             },
             "development": {
               "browserTarget": "app-frontend:build:development"
+            },
+            "web": {
+              "browserTarget": "app-frontend:build:web"
             }
           },
           "defaultConfiguration": "development"
@@ -98,9 +124,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "subprojects/app-frontend/**/*.ts",
+              "subprojects/app-frontend/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "app-frontend"
+  "defaultProject": "app-frontend",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

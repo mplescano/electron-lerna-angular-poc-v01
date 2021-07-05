@@ -1,0 +1,35 @@
+{
+  "productName": "Lerna-POC-v02",
+  "appId": "com.mplb.lerna-poc-v02",
+  "artifactName": "${productName}-Installer-${version}.${ext}",
+  "npmRebuild": false,
+  "asar": false,
+  "directories": {
+    "output": "dist/app-electron-executables/"
+  },
+  "files": [
+    "dist/app-electron/main.js",
+    "dist/app-frontend/**"
+  ],
+  "win": {
+    "icon": "dist/app-frontend/assets/icons",
+    "target": [
+      "portable"
+    ]
+  },
+  "portable": {
+    "splashImage": "dist/app-frontend/assets/icons/electron.bmp"
+  },
+  "mac": {
+    "icon": "dist/app-frontend/assets/icons",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "icon": "dist/app-frontend/assets/icons",
+    "target": [
+      "AppImage"
+    ]
+  }
+}

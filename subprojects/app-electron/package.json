@@ -1,0 +1,12 @@
+{
+  "name": "app-electron",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.serve.json",
+    "build:dev": "npm run build",
+    "build:prod": "npm run build"
+  },
+  "peerDependencies": {
+    "@electron/remote": "1.2.0"
+  }
+}
